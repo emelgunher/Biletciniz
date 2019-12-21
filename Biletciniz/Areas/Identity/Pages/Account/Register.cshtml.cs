@@ -63,14 +63,14 @@ namespace Biletciniz.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
 
             [Required]
-            public string FirstName { get; set; }
+            public string Ad { get; set; }
             [Required]
-            public string LastName { get; set; }
+            public string Soyad { get; set; }
 
             [Required]
             [DataType(DataType.Date)]
             [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-            public string BirthDate { get; set; }
+            public DateTime DogumTarihi { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
