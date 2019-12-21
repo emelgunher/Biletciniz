@@ -10,6 +10,26 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Pages\Admin\Bilet\Create.cshtml" />
+    <None Include="Pages\Admin\Bilet\Delete.cshtml" />
+    <None Include="Pages\Admin\Bilet\Details.cshtml" />
+    <None Include="Pages\Admin\Bilet\Edit.cshtml" />
+    <None Include="Pages\Admin\Bilet\Index.cshtml" />
+    <None Include="Pages\Admin\Etkinlik\Create.cshtml" />
+    <None Include="Pages\Admin\Etkinlik\Delete.cshtml" />
+    <None Include="Pages\Admin\Etkinlik\Details.cshtml" />
+    <None Include="Pages\Admin\Etkinlik\Edit.cshtml" />
+    <None Include="Pages\Admin\Etkinlik\Index.cshtml" />
+    <None Include="Pages\Admin\Mekan\Create.cshtml" />
+    <None Include="Pages\Admin\Mekan\Delete.cshtml" />
+    <None Include="Pages\Admin\Mekan\Details.cshtml" />
+    <None Include="Pages\Admin\Mekan\Edit.cshtml" />
+    <None Include="Pages\Admin\Mekan\Index.cshtml" />
+    <None Include="Pages\Admin\Sanatci\Create.cshtml" />
+    <None Include="Pages\Admin\Sanatci\Delete.cshtml" />
+    <None Include="Pages\Admin\Sanatci\Details.cshtml" />
+    <None Include="Pages\Admin\Sanatci\Edit.cshtml" />
+    <None Include="Pages\Admin\Sanatci\Index.cshtml" />
     <None Include="wwwroot\js\site.js" />
   </ItemGroup>
 

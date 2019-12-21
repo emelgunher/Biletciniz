@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Edit";
+  
 }
 
 <h1>Edit</h1>
@@ -36,12 +37,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Etkinlik.Kategori.KategoriAdi" class="control-label"></label>
-                <select asp-for="Etkinlik.KategoriID" class="form-control" asp-items="ViewBag.KategoriID"></select>
+                <select id="Kategoriler" asp-for="Etkinlik.KategoriID" class="form-control" asp-items="ViewBag.KategoriID"></select>
                 <span asp-validation-for="Etkinlik.KategoriID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Etkinlik.Tur.TurAdi" class="control-label"></label>
-                <select asp-for="Etkinlik.TurID" class="form-control" asp-items="ViewBag.TurID"></select>
+                <select id="Tur" class="form-control" asp-for="Etkinlik.TurID" asp-items="ViewBag.TurID" ></select>
                 <span asp-validation-for="Etkinlik.TurID" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -62,4 +63,50 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+
+
+        $(document).ready(function () {
+
+            $("#Kategoriler").on("change", function () {
+
+                var kategori = $("#Kategoriler").val().trim();
+
+
+                var kategoriID = {
+                    kkategoriID: kategori
+                }
+
+
+                $.ajax({
+                    type: "GET",
+                    url: "@Url.Page("/Admin/Etkinlik/Edit","Turler")",
+                    contentType: "application/json; charset=utf-8",
+                    async:true,
+                    dataType: "json",
+                    data: kategoriID,
+                    success: function (model) {
+                        console.log(1);
+                        console.log(model);
+                        $("#Tur").empty();
+                      for (let i = 0; i < model.length; i++) {
+                            $("#Tur").append(`<option Value="${model[i].id}">${model[i].turAdi}</option>`);
+
+                      }
+
+
+                    },
+                    error: function () {
+                        alert("olmadı :(");
+                    },
+                  });
+
+            });
+
+
+
+
+        });
+    </script>
 }

@@ -79,5 +79,29 @@ namespace Biletciniz.Pages.Admin.Etkinlik
         {
             return _context.Etkinlik.Any(e => e.ID == id);
         }
+
+        public JsonResult OnGetTurler(int kkategoriID)
+        {
+            var id = kkategoriID;
+
+
+            var TurlerListe = _context.Tur.Where(x => x.KategoriID == id).ToList();
+
+
+            List<Tur> model = new List<Tur>();
+            foreach (var turler in TurlerListe)
+            {
+                model.Add(new Tur()
+                {
+                    ID = turler.ID,
+                    TurAdi = turler.TurAdi,
+                    KategoriID = turler.KategoriID
+                });
+
+            }
+
+
+            return new JsonResult(model);
+        }
     }
 }

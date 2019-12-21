@@ -77,5 +77,29 @@ namespace Biletciniz.Pages.Admin.Mekan
         {
             return _context.Mekan.Any(e => e.ID == id);
         }
+
+        public JsonResult OnGetIlceler(int sehirID)
+        {
+            var id = sehirID;
+
+
+            var İlcelerListe = _context.Ilce.Where(x => x.SehirID == id).ToList();
+
+
+            List<SelectListItem> model = new List<SelectListItem>();
+            foreach (var ilce in İlcelerListe)
+            {
+                model.Add(new SelectListItem()
+                {
+                    Value = ilce.ID.ToString(),
+                    Text = ilce.IlceAdi
+
+                });
+
+            }
+
+
+            return new JsonResult(model);
+        }
     }
 }
