@@ -24,12 +24,12 @@
                 <span asp-validation-for="Mekan.Kapasite" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Mekan.SehirID" class="control-label"></label>
-                <select asp-for="Mekan.SehirID" class ="form-control" asp-items="ViewBag.SehirID"></select>
+                <label asp-for="Mekan.Sehir.SehirAdi" class="control-label"></label>
+                <select id="Sehirler" asp-for="Mekan.SehirID" class="form-control" asp-items="ViewBag.SehirID"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Mekan.IlceID" class="control-label"></label>
-                <select asp-for="Mekan.IlceID" class ="form-control" asp-items="ViewBag.IlceID"></select>
+                <label asp-for="Mekan.Ilce.IlceAdi" class="control-label"></label>
+                <select id="Ilceler" asp-for="Mekan.IlceID" class="form-control" asp-items="ViewBag.IlceID"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -44,4 +44,49 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#Sehirler").on("change", function () {
+
+                var sehir = $("#Sehirler").val().trim();
+          
+                var sehirID = {
+                    sehirid: sehir
+                }
+
+
+                $.ajax({
+                    type: "GET",
+                    url: "@Url.Page("/Admin/Mekan/Create","Ilceler")",
+                    contentType: "application/json; charset=utf-8",
+                    async:true,
+                    dataType: "json",
+                    data: sehirID,
+                    success: function (model) {
+                        console.log(1);
+                        console.log(model);
+                        $("#Ilceler").empty();
+                      for (let i = 0; i < model.length; i++) {
+                            $("#Ilceler").append(`<option Value="${model[i].value}">${model[i].text}</option>`);
+
+                      }
+
+
+                    },
+                    error: function () {
+                        alert("olmadı :(");
+                    },
+                  });
+
+            });
+
+
+
+
+        });
+    </script>
 }

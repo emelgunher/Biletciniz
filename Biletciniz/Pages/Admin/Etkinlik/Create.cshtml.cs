@@ -9,6 +9,7 @@ using Biletciniz.Data;
 using Biletciniz.Models;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Newtonsoft.Json;
 
 namespace Biletciniz.Pages.Admin.Etkinlik
 {
@@ -21,10 +22,15 @@ namespace Biletciniz.Pages.Admin.Etkinlik
             _context = context;
             _hostingEnvironment = hostingEnvironment;
         }
+     
+
+        
+   
 
         public IActionResult OnGet()
         {
-           
+
+
         ViewData["KategoriID"] = new SelectList(_context.Kategori, "ID", "KategoriAdi");
         ViewData["MekanID"] = new SelectList(_context.Mekan, "ID", "MekanAdi");
         ViewData["TurID"] = new SelectList(_context.Tur, "ID", "TurAdi");
@@ -59,5 +65,32 @@ namespace Biletciniz.Pages.Admin.Etkinlik
 
             return RedirectToPage("./Index");
         }
+
+        public JsonResult OnGetTurler(int kkategoriID)
+        {
+            var id =kkategoriID;
+
+           
+            var TurlerListe = _context.Tur.Where(x => x.KategoriID == id).ToList();
+
+
+            List<Tur> model = new List<Tur>();
+            foreach (var turler in TurlerListe)
+            {
+                model.Add(new Tur()
+                {
+                    ID = turler.ID,
+                    TurAdi = turler.TurAdi,
+                    KategoriID = turler.KategoriID
+                }); 
+
+            }
+
+
+            return new JsonResult(model);
+        }
+
+
+
     }
 }

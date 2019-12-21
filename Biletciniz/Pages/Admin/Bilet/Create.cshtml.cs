@@ -21,6 +21,8 @@ namespace Biletciniz.Pages.Admin.Bilet
 
         public IActionResult OnGet()
         {
+
+
         ViewData["EtkinlikID"] = new SelectList(_context.Etkinlik, "ID", "EtkinlikAdi");
             return Page();
         }
