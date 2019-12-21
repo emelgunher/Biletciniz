@@ -247,19 +247,22 @@
 
 
                             <li class="menu-item">
-                                <a href="#">Admin</a>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <a href="#">Admin</a>
 
-                                <div class="sub-mega-menu">
-                                    <div class="nav flex-column nav-pills" role="tablist" style="background-color:white">
-                                        <a class="nav-link" asp-page="/Admin/Bilet/Index">Bilet</a>
-                                        <a class="nav-link" asp-page="/Admin/Etkinlik/Index">Etkinlik</a>
-                                        <a class="nav-link" asp-page="/Admin/Sanatci/Index">Sanatci </a>
-                                        <a class="nav-link" asp-page="/Admin/Mekan/Index">Mekan</a>
+                                    <div class="sub-mega-menu">
+                                        <div class="nav flex-column nav-pills" role="tablist" style="background-color:white">
+                                            <a class="nav-link" asp-page="/Admin/Bilet/Index">Bilet</a>
+                                            <a class="nav-link" asp-page="/Admin/Etkinlik/Index">Etkinlik</a>
+                                            <a class="nav-link" asp-page="/Admin/Sanatci/Index">Sanatci </a>
+                                            <a class="nav-link" asp-page="/Admin/Mekan/Index">Mekan</a>
+
+                                        </div>
 
                                     </div>
-
-                                </div>
-                            </li>
+                                }
+                                </li>
 
                         </ul>
 
