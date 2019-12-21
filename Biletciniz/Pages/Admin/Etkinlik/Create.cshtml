@@ -1,0 +1,66 @@
+﻿@page
+@model Biletciniz.Pages.Admin.Etkinlik.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Etkinlik</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Etkinlik.EtkinlikAdi" class="control-label"></label>
+                <input asp-for="Etkinlik.EtkinlikAdi" class="form-control" />
+                <span asp-validation-for="Etkinlik.EtkinlikAdi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Etkinlik.BaslangicTarihi" class="control-label"></label>
+                <input asp-for="Etkinlik.BaslangicTarihi" class="form-control" />
+                <span asp-validation-for="Etkinlik.BaslangicTarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Etkinlik.BitisTarihi" class="control-label"></label>
+                <input asp-for="Etkinlik.BitisTarihi" class="form-control" />
+                <span asp-validation-for="Etkinlik.BitisTarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Etkinlik.Afis" class="control-label"></label>
+                <input type="file" asp-for="Etkinlik.Afis" class="form-control" />
+                <span asp-validation-for="Etkinlik.Afis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Etkinlik.Süre" class="control-label"></label>
+                <input asp-for="Etkinlik.Süre" class="form-control" />
+                <span asp-validation-for="Etkinlik.Süre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Etkinlik.KategoriID" class="control-label"></label>
+                <select asp-for="Etkinlik.KategoriID" class="form-control" asp-items="ViewBag.KategoriID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Etkinlik.TurID" class="control-label"></label>
+                <select asp-for="Etkinlik.TurID" class="form-control" asp-items="ViewBag.TurID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Etkinlik.MekanID" class="control-label"></label>
+                <select asp-for="Etkinlik.MekanID" class="form-control" asp-items="ViewBag.MekanID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

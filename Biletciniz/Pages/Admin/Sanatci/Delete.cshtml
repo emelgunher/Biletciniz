@@ -1,0 +1,52 @@
+﻿@page
+@model Biletciniz.Pages.Admin.Sanatci.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Sanatci</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sanatci.Adi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sanatci.Adi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sanatci.Soyadi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sanatci.Soyadi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sanatci.DogumTarihi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sanatci.DogumTarihi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sanatci.Sehir)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sanatci.Sehir.SehirAdi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sanatci.Cinsiyet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sanatci.Cinsiyet)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Sanatci.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,49 @@
+﻿@page
+@model Biletciniz.Pages.Admin.Sanatci.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Sanatci</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sanatci.Adi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sanatci.Adi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sanatci.Soyadi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sanatci.Soyadi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sanatci.DogumTarihi)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sanatci.DogumTarihi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sanatci.Sehir)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sanatci.Sehir.SehirAdi)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Sanatci.Cinsiyet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Sanatci.Cinsiyet)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Sanatci.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -1,0 +1,165 @@
+﻿@page
+@model Biletciniz.Pages.Kullanıcı.Aile.IndexModel
+@{
+}
+
+<div class="flex-wr-sb-s p-t-35">
+    <div class="size-w- w-full-sr575">
+
+        <div class="m-b-30">
+
+
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width:600px; height:400px;">
+                <div class="carousel-inner">
+
+
+
+                    @foreach (var item in Model.satista)
+                    {
+
+                        <div class="@(item.ID==15 ? "carousel-item active" : "carousel-item")">
+                            <div>
+                                <img src="@item.Afis" class="d-block w-100" alt="@item.EtkinlikAdi">
+
+
+                                <h5 class="p-b-5">
+                                    <a href="#" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                        @item.EtkinlikAdi  bilet almak için tıklayınız!
+                                    </a>
+                                </h5>
+                            </div>
+
+
+
+                        </div>
+                    }
+
+
+                </div>
+
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-b-60" style="width:350px; height:100px;">
+        <div class="how2 how2-cl4 flex-s-c">
+            <h3 class="f1-m-2 cl3 tab01-title">
+                Kategoriler
+            </h3>
+        </div>
+
+        <ul class="p-t-35">
+            <li class="how-bor3 p-rl-4">
+                <a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+                    Gösteri
+                </a>
+            </li>
+
+            <li class="how-bor3 p-rl-4">
+                <a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+                    Sirk
+                </a>
+            </li>
+
+            <li class="how-bor3 p-rl-4">
+                <a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+                    Tiyatro
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<div class="p-b-25">
+    <div class="how2 how2-cl2 flex-s-c">
+        <h3 class="f1-m-2 cl13 tab01-title">
+            Gelecekteki Etkinlikler
+        </h3>
+    </div>
+</div>
+
+<div class="card-group">
+    <div class="card">
+        <a href="#">
+            <img class="card-img-top" src="~/images/img/sirk.jpg" alt="Card image cap">
+        </a>
+
+        <div class="card-body">
+            <a href="#" class="f1-m-3 cl2 hov-cl10 trans-03">
+                <h5 class="card-title how-bor3 p-rl-4">Sirk Gösterisi</h5>
+                <p class="card-text f1-s-3">Önümüzdeki günlerde sizlerle..</p>
+            </a>
+        </div>
+    </div>
+    <div class="card">
+        <a href="#">
+            <img class="card-img-top" src="~/images/img/aile.jpg" alt="Card image cap">
+        </a>
+        <div class="card-body">
+            <a href="#" class="f1-m-3 cl2 hov-cl10 trans-03">
+                <h5 class="card-title how-bor3 p-rl-4">Aile</h5>
+                <p class="card-text f1-s-3">Önümüzdeki günlerde sizlerle..</p>
+            </a>
+        </div>
+    </div>
+    <div class="card">
+        <a href="#">
+            <img class="card-img-top" src="~/images/img/sirk.jpg"  alt="Card image cap">
+        </a>
+        <div class="card-body">
+            <a href="#" class="f1-m-3 cl2 hov-cl10 trans-03">
+                <h5 class="card-title how-bor3 p-rl-4">Sirk Gösterisi</h5>
+                <p class="card-text f1-s-3"> Önümüzdeki günlerde sizlerle..</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<section style="margin-top:70px">
+    <table id="table_id" class="display table table-bordered">
+        <thead>
+            <tr>
+                <th>Afiş</th>
+                <th>Etkinlik Adı</th>
+                <th>Tarih</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var etkinlik in Model.BiletAl)
+            {
+            <tr>
+                <td><img src="@etkinlik.Afis" alt="..." class="img-thumbnail" style=" width:100px;height:100px; "></td>
+                <td>@etkinlik.EtkinlikAdi</td>
+                <td>@etkinlik.BaslangicTarihi</td>
+                <td><a class="btn btn-success" href="#news-4">Satın Al</a></td>
+            </tr>
+
+
+
+            }
+
+
+        </tbody>
+    </table>
+</section>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable();
+        });
+    </script>
+    }

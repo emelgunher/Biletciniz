@@ -1,0 +1,444 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    int sayac = 0;
+    int sayac1 = 0;
+    int sayac2 = 1;
+}
+
+<section class="bg0">
+    <div class="row m-rl-0 justify-content-center">
+        <div class="col-md-4 p-rl-1 p-b-2">
+            <div class="bg-img1 size-a-11 how1 pos-relative" style="background-image: url(images/img/guncel-konserler.jpg);height:300px">
+                <a asp-page="/Kullanıcı/Muzik/Index" class="dis-block how1-child1 trans-03"></a>
+
+                <div class="flex-col-e-s s-full p-rl-25 p-tb-18">
+                    <a asp-page="/Kullanıcı/Muzik/Index" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
+                        Müzik
+                    </a>
+
+                    <h3 class="how1-child2 m-t-14 m-b-10">
+                        <a asp-page="/Kullanıcı/Muzik/Index" class="f1-l-1 cl0 hov-cl10 trans-03 respon1">
+                            Müzik ile neşe dolun !
+                        </a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 p-rl-1 p-b-2">
+            <div class="bg-img1 size-a-11 how1 pos-relative" style="background-image: url(images/img/aile.jpg); height:300px">
+                <a asp-page="/Kullanıcı/Aile/Index" class="dis-block how1-child1 trans-03"></a>
+
+                <div class="flex-col-e-s s-full p-rl-25 p-tb-18" >
+                    <a asp-page="/Kullanıcı/Aile/Index" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
+                        Aile
+                    </a>
+
+                    <h3 class="how1-child2 m-t-14 m-b-10">
+                        <a asp-page="/Kullanıcı/Aile/Index" class="f1-l-1 cl0 hov-cl10 trans-03 respon1">
+                            Aileniz ile birlikte güzel vakit geçirme şansı !
+                        </a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 p-rl-1 p-b-2">
+            <div class="bg-img1 size-a-11 how1 pos-relative" style="background-image: url(images/img/spor.jpg);height:300px">
+                <a asp-page="/Kullanıcı/Spor/Index" class="dis-block how1-child1 trans-03"></a>
+
+                <div class="flex-col-e-s s-full p-rl-25 p-tb-18">
+                    <a asp-page="/Kullanıcı/Spor/Index" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
+                        Spor
+                    </a>
+
+                    <h3 class="how1-child2 m-t-14 m-b-10">
+                        <a asp-page="/Kullanıcı/Spor/Index" class="f1-l-1 cl0 hov-cl10 trans-03 respon1">
+                            Spor ile ilgili tüm etkinlikler !
+                        </a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="post bg0 p-t-85">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="p-r-10 p-rl-0-sr991 p-b-20">
+                    <!-- Entertainment  -->
+                    <div class="p-b-25">
+                        <div class="how2 how2-cl1 flex-s-c">
+                            <h3 class="f1-m-2 cl12 tab01-title">
+                                Gösterimdeki Etkinlikler
+                            </h3>
+                        </div>
+
+                        <div class="flex-wr-sb-s p-t-35">
+                            <div class="size-w- w-full-sr575">
+
+                                <div class="m-b-30">
+
+
+                                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width:410px; height:250px;">
+                                        <div class="carousel-inner">
+
+
+
+                                            @foreach (var item in Model.satista)
+                                            {
+                                                @if (sayac == 0)
+                                                {
+                                                    <div class="carousel-item active">
+                                                        <div>
+                                                            <img src="@item.Afis" class="d-block w-100" alt="@item.EtkinlikAdi">
+
+
+                                                            <h5 class="p-b-5">
+                                                                <a href="#" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                                                    @item.EtkinlikAdi  bilet almak için tıklayınız!
+                                                                </a>
+                                                            </h5>
+                                                        </div>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="carousel-item">
+                                                        <div>
+                                                            <img src="@item.Afis" class="d-block w-100" alt="@item.EtkinlikAdi">
+
+
+                                                            <h5 class="p-b-5">
+                                                                <a href="#" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                                                    @item.EtkinlikAdi  bilet almak için tıklayınız!
+                                                                </a>
+                                                            </h5>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                    
+                                                }
+                                                
+                                                sayac=sayac + 1;
+
+                                            }
+
+
+                                        </div>
+
+                                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="size-w-7 w-full-sr575">
+                                <!-- Item post -->
+                                <div class="m-b-30">
+                                    <a href="blog-detail-02.html" class="wrap-pic-w hov1 trans-03">
+                                        <img src="~/images/img/konser-1.jpg" alt="IMG">
+                                    </a>
+
+                                    <div class="p-t-10">
+                                        <h5 class="p-b-5">
+                                            <a href="blog-detail-02.html" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                               Satışta olan konser biletleri burada! Tıkla hemen biletini al!
+                                            </a>
+                                        </h5>
+
+                                        <span class="cl8">
+                                            <a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+                                                Music
+                                            </a>
+
+                                            <span class="f1-s-3 m-rl-3">
+                                                -
+                                            </span>
+
+                                            <span class="f1-s-3">
+                                                Feb 18
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Item post -->
+                                <div class="m-b-30">
+                                    <a href="blog-detail-02.html" class="wrap-pic-w hov1 trans-03">
+                                        <img src="~/images/img/tiyatro.jpg" alt="IMG">
+                                    </a>
+
+                                    <div class="p-t-10">
+                                        <h5 class="p-b-5">
+                                            <a href="blog-detail-02.html" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                                Ailenizle keyifli dakikalar geçireceğiniz Tiyatro biletleri burada!
+                                            </a>
+                                        </h5>
+
+                                        <span class="cl8">
+                                            <a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+                                                Tiyatro
+                                            </a>
+
+                                            <span class="f1-s-3 m-rl-3">
+                                                -
+                                            </span>
+
+                                            <span class="f1-s-3">
+                                                Feb 16
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business  -->
+                    <div class="p-b-25">
+                        <div class="how2 how2-cl2 flex-s-c">
+                            <h3 class="f1-m-2 cl13 tab01-title">
+                                Gelecekteki Etkinlikler
+                            </h3>
+                        </div>
+
+                        <div class="flex-wr-sb-s p-t-35">
+                            <div class="size-w-6 w-full-sr575">
+                                <!-- Item post -->
+                                <div class="m-b-30">
+
+                                    <div id="carouselExampleControlss" class="carousel slide" data-ride="carousel" style="width:410px; height:250px;">
+                                        <div class="carousel-inner">
+                                            @foreach (var item in Model.yakinda)
+                                            {
+                                                @if (sayac1 == 0)
+                                                {
+                                            <div class="carousel-item active">
+                                                <div>
+                                                    <img src="@item.Afis" class="d-block w-100" alt="@item.EtkinlikAdi">
+
+
+                                                    <h5 class="p-b-5">
+                                                        <a href="#" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                                            @item.EtkinlikAdi  bilet almak için tıklayınız!
+                                                        </a>
+                                                    </h5>
+                                                </div>
+                                                </div>
+                                                }
+                                                else{
+                                                <div class="carousel-item">
+                                                    <div>
+                                                        <img src="@item.Afis" class="d-block w-100" alt="@item.EtkinlikAdi">
+
+
+                                                        <h5 class="p-b-5">
+                                                            <a href="#" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                                                @item.EtkinlikAdi  bilet almak için tıklayınız!
+                                                            </a>
+                                                        </h5>
+                                                    </div>
+
+
+
+                                                </div>
+                                                }
+                                                sayac1++;
+                                            }
+
+
+                                            </div>
+
+                                                    <a class="carousel-control-prev" href="#carouselExampleControlss" role="button" data-slide="prev">
+                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                        <span class="sr-only">Previous</span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carouselExampleControlss" role="button" data-slide="next">
+                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                        <span class="sr-only">Next</span>
+                                                    </a>
+                                                </div>
+
+                                </div>
+                            </div>
+
+                            <div class="size-w-7 w-full-sr575">
+                                <!-- Item post -->
+                                <div class="m-b-30">
+                                    <a href="blog-detail-02.html" class="wrap-pic-w hov1 trans-03">
+                                        <img src="~/images/img/tarkan.jpg" alt="IMG">
+                                    </a>
+
+                                    <div class="p-t-10">
+                                        <h5 class="p-b-5">
+                                            <a href="blog-detail-02.html" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                               Gelecek konser takviminizi hemen oluşturun.
+                                            </a>
+                                        </h5>
+
+                                        <span class="cl8">
+                                            <a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+                                                Müzik
+                                            </a>
+
+                                            <span class="f1-s-3 m-rl-3">
+                                                -
+                                            </span>
+
+                                            <span class="f1-s-3">
+                                                Feb 17
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Item post -->
+                                <div class="m-b-30">
+                                    <a href="blog-detail-02.html" class="wrap-pic-w hov1 trans-03">
+                                        <img src="images/img/voleybol.jpg" alt="IMG">
+                                    </a>
+
+                                    <div class="p-t-10">
+                                        <h5 class="p-b-5">
+                                            <a href="blog-detail-02.html" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                                Voleybol Bayanlar Axa Spor Kupa Final biletleri burada!
+                                            </a>
+                                        </h5>
+
+                                        <span class="cl8">
+                                            <a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+                                                Spor
+                                            </a>
+
+                                            <span class="f1-s-3 m-rl-3">
+                                                -
+                                            </span>
+
+                                            <span class="f1-s-3">
+                                                Feb 16
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  
+                </div>
+            </div>
+
+            <div class="col-md-10 col-lg-4">
+                <div class="p-l-10 p-rl-0-sr991 p-b-20">
+                    <!-- Stay Connected -->
+                    <div class="p-b-35">
+                        <div class="how2 how2-cl4 flex-s-c">
+                            <h3 class="f1-m-2 cl3 tab01-title">
+                                Sosyal Medyada Biz
+                            </h3>
+                        </div>
+
+                        <ul class="p-t-35">
+                            <li class="flex-wr-sb-c p-b-20">
+                                <a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-facebook fs-16 cl0 hov-cl0">
+                                    <span class="fab fa-facebook-f"></span>
+                                </a>
+
+                                <div class="size-w-3 flex-wr-sb-c">
+                                    <span class="f1-s-8 cl3 p-r-20">
+                                        6879 Fans
+                                    </span>
+
+                                    <a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
+                                        Like
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="flex-wr-sb-c p-b-20">
+                                <a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-twitter fs-16 cl0 hov-cl0">
+                                    <span class="fab fa-twitter"></span>
+                                </a>
+
+                                <div class="size-w-3 flex-wr-sb-c">
+                                    <span class="f1-s-8 cl3 p-r-20">
+                                        568 Followers
+                                    </span>
+
+                                    <a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
+                                        Follow
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="flex-wr-sb-c p-b-20">
+                                <a href="#" class="size-a-8 flex-c-c borad-3 size-a-8 bg-youtube fs-16 cl0 hov-cl0">
+                                    <span class="fab fa-youtube"></span>
+                                </a>
+
+                                <div class="size-w-3 flex-wr-sb-c">
+                                    <span class="f1-s-8 cl3 p-r-20">
+                                        5039 Subscribers
+                                    </span>
+
+                                    <a href="#" class="f1-s-9 text-uppercase cl3 hov-cl10 trans-03">
+                                        Subscribe
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Most Popular -->
+                    <div class="p-b-30">
+                        <div class="how2 how2-cl4 flex-s-c">
+                            <h3 class="f1-m-2 cl3 tab01-title">
+                                Bugün Satışta
+                            </h3>
+                        </div>
+
+                        <ul class="p-t-35">
+
+                            @foreach (var item in Model.Bugun)
+                            {
+                                <li class="flex-wr-sb-s p-b-22">
+                                    <div class="size-a-8 flex-c-c borad-3 size-a-8 bg9 f1-m-4 cl0 m-b-6">
+                                        @sayac2
+                                        
+                                    </div>
+
+                                    <a href="#" class="size-w-3 f1-s-7 cl3 hov-cl10 trans-03">
+                                        @item.EtkinlikAdi e hemen biletini al etkinliğe katıl!
+                                    </a>
+                                </li>
+
+                                sayac2++;
+                            }
+
+                        </ul>
+                    </div>
+
+
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
