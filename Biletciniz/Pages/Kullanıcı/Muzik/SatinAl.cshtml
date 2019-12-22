@@ -4,6 +4,157 @@
     ViewData["Title"] = "SatınAl";
 }
 
-<h1>Satın Al</h1>
 
-<label>@Model.Bilet.Etkinlik.EtkinlikAdi</label>
+    <div class="flex-wr-sb-s p-t-35 ">
+        <div class="size-w- w-full-sr575">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="m-b-30">
+                        <div class="p-b-25">
+                            <div class="how2 how2-cl2 flex-s-c">
+                                <h3 class="f1-m-2 cl13 tab01-title">
+                                    Biletini Hemen Satın Al!
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <img style="height:400px;" class="card-img-top" src="@Model.etkinlik.Afis" alt="Card image cap">
+
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <h3 style="color:black" class="f1-m-2 cl13 tab01-title">
+                                                Etkinlik:
+                                            </h3>
+                                            <h3 style="color:black" class="f1-m-2 cl13 tab01-title">
+                                                @Model.etkinlik.EtkinlikAdi
+                                            </h3>
+                                        </div>
+
+
+
+                                        <div class="row">
+                                            <h3 style="color:black;" class="f1-m-2 cl13 tab01-title">
+                                                Bitiş Tarihi:
+                                            </h3>
+                                            <h3 style="color:black" class="f1-m-2 cl13 tab01-title">
+                                                @Model.etkinlik.BitisTarihi
+                                            </h3>
+                                        </div>
+
+                                        <div class="row">
+                                            <h3 style="color:black" class="f1-m-2 cl13 tab01-title">
+                                                Süresi:
+                                            </h3>
+                                            <h3 style="color:black" class="f1-m-2 cl13 tab01-title">@Model.etkinlik.Süre dk</h3>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                              </div>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="p-b-60" style="width:350px; height:100px;">
+                        <div class="how2 how2-cl4 flex-s-c">
+                            <h3 class="f1-m-2 cl3 tab01-title">
+                                Kategoriler
+                            </h3>
+                        </div>
+
+                        <ul class="p-t-35">
+                            <li class="how-bor3 p-rl-4">
+                                <a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+                                    Pop
+                                </a>
+                            </li>
+
+                            <li class="how-bor3 p-rl-4">
+                                <a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+                                    Rock
+                                </a>
+                            </li>
+
+                            <li class="how-bor3 p-rl-4">
+                                <a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+                                    Caz
+                                </a>
+                            </li>
+
+                            <li class="how-bor3 p-rl-4">
+                                <a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+                                    Klasik
+                                </a>
+                            </li>
+
+                            <li class="how-bor3 p-rl-4">
+                                <a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+                                    Rap
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="f1-m-2 cl13 tab01-title">
+            Bilet Bilgilerinizi Giriniz
+        </h3>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" hidden>
+                <label asp-for="Bilet.Etkinlik.EtkinlikAdi" class="control-label"></label>
+                <input name="Bilet.EtkinlikID" asp-for="@Model.etkinlik.ID" class="form-control"></input>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="Bilet.KoltukNo" class="control-label"></label>
+                        <input asp-for="Bilet.KoltukNo" class="form-control" />
+                        <span asp-validation-for="Bilet.KoltukNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="Bilet.SatisTarihi" class="control-label"></label>
+                        <input asp-for="Bilet.SatisTarihi" class="form-control" />
+                        <span asp-validation-for="Bilet.SatisTarihi" class="text-danger"></span>
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="Bilet.Fiyat" class="control-label"></label>
+                        <input asp-for="Bilet.Fiyat" value="65" class="form-control" disabled />
+                        <span asp-validation-for="Bilet.Fiyat" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group" style="margin-top:22px;">
+                        <input type="submit" value="Satın Al" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>

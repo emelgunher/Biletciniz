@@ -19,60 +19,45 @@ namespace Biletciniz
             _context = context;
         }
 
-        [BindProperty]
-        public Biletciniz.Models.Bilet Bilet { get; set; }
+       
+     public string isim { get; set; }
+        public  int Etkinlikid { get; set; }
+        public Biletciniz.Models.Etkinlik etkinlik { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet(int? id)
         {
-          
-                if (id == null)
-                {
-                    return NotFound();
-                }
+             // isim =_context.Etkinlik.Find(id).EtkinlikAdi;
+             //Etkinlikid= _context.Etkinlik.Find(id).ID;
+             etkinlik= _context.Etkinlik.Find(id);
+            ViewData["EtkinlikID"] = new SelectList(_context.Etkinlik, "ID", "EtkinlikAdi");
 
-                Bilet = await _context.Bilet
-                    .Include(b => b.Etkinlik).FirstOrDefaultAsync(m => m.ID == id);
-
-                if (Bilet == null)
-                {
-                    return NotFound();
-                }
-                ViewData["EtkinlikID"] = new SelectList(_context.Etkinlik, "ID", "EtkinlikAdi");
-                return Page();
+            return Page();
               
         }
 
+        [BindProperty]
+        public Biletciniz.Models.Bilet Bilet { get; set; }
+
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-
-            _context.Attach(Bilet).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BiletExists(Bilet.ID))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+           
+         
+            _context.Bilet.Add(Bilet);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
 
-        private bool BiletExists(int id)
-        {
-            return _context.Bilet.Any(e => e.ID == id);
-        }
+       
+
+
     }
 }
