@@ -24,12 +24,12 @@ namespace Biletciniz.Pages.Kullanıcı.Aile
         public void OnGet()
         {
             satista = _db.Etkinlik.Where(x => (x.BaslangicTarihi <= DateTime.Now
-            && x.BitisTarihi > DateTime.Now && x.KategoriID==3)).ToList();
+            && x.BitisTarihi > DateTime.Now && x.Kategori.KategoriAdi=="Aile")).ToList();
 
             yakinda = _db.Etkinlik.Where(x => (x.BaslangicTarihi > DateTime.Now
-                  && x.BitisTarihi > DateTime.Now && x.KategoriID == 3)).ToList();
+                  && x.BitisTarihi > DateTime.Now && x.Kategori.KategoriAdi == "Aile")).ToList();
 
-            BiletAl = _db.Etkinlik.Where(x => x.KategoriID == 3).ToList();
+            BiletAl = _db.Etkinlik.Where(x => x.Kategori.KategoriAdi == "Aile").ToList();
 
         }
     }
