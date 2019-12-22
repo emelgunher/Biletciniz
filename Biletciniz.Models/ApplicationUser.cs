@@ -9,7 +9,7 @@ namespace Biletciniz.Models
 {
      public class ApplicationUser : IdentityUser
     {
-
+      
         public string Ad { get; set; }
         public string Soyad { get; set; }
 
