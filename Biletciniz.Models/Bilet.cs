@@ -21,11 +21,8 @@ namespace Biletciniz.Models
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime SatisTarihi { get; set; }
         public double Fiyat { get; set; }
-        [Required]
-        public string MusteriID { get; set; }
 
-        [ForeignKey("MusteriID")]
-        public virtual ApplicationUser ApplicationUser { get; set; }
+
 
     }
 }
