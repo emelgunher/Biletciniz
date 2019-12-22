@@ -30,6 +30,9 @@
     <None Include="Pages\Admin\Sanatci\Details.cshtml" />
     <None Include="Pages\Admin\Sanatci\Edit.cshtml" />
     <None Include="Pages\Admin\Sanatci\Index.cshtml" />
+    <None Include="Pages\Kullanıcı\Muzik\Index.cshtml" />
+    <None Include="Pages\Kullanıcı\Muzik\Pop.cshtml" />
+    <None Include="Pages\Kullanıcı\Muzik\SatinAl.cshtml" />
     <None Include="wwwroot\js\site.js" />
   </ItemGroup>
 
