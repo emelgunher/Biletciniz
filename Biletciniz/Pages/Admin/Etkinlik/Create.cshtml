@@ -20,9 +20,14 @@
                 <span asp-validation-for="Etkinlik.EtkinlikAdi" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Etkinlik.Tarih" class="control-label"></label>
-                <input asp-for="Etkinlik.Tarih" class="form-control" />
-                <span asp-validation-for="Etkinlik.Tarih" class="text-danger"></span>
+                <label asp-for="Etkinlik.BaslangicTarihi" class="control-label"></label>
+                <input asp-for="Etkinlik.BaslangicTarihi" class="form-control" />
+                <span asp-validation-for="Etkinlik.BaslangicTarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Etkinlik.BitisTarihi" class="control-label"></label>
+                <input asp-for="Etkinlik.BitisTarihi" class="form-control" />
+                <span asp-validation-for="Etkinlik.BitisTarihi" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Etkinlik.Afis" class="control-label"></label>
@@ -42,7 +47,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Etkinlik.Tur.TurAdi" class="control-label"></label>
-                <select id="Tur" class="form-control"  asp-for="Etkinlik.TurID" >
+                <select id="Tur" class="form-control" asp-for="Etkinlik.TurID">
                     <option value="sec" disabled="disabled" selected>Kategori Seciniz..</option>
                 </select>
             </div>
