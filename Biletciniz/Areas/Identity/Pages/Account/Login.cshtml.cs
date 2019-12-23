@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Biletciniz.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -14,6 +15,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Biletciniz.Areas.Identity.Pages.Account
 {
+
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
@@ -22,14 +24,14 @@ namespace Biletciniz.Areas.Identity.Pages.Account
         private readonly ILogger<LoginModel> _logger;
         private readonly IEmailSender _emailSender;
 
-        public LoginModel(SignInManager<IdentityUser> signInManager, 
+        public LoginModel(SignInManager<IdentityUser> signInManager,
             ILogger<LoginModel> logger,
-            UserManager<IdentityUser> userManager,
-            IEmailSender emailSender)
+            UserManager<IdentityUser> userManager)
+        //         IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _emailSender = emailSender;
+            //           _emailSender = emailSender;
             _logger = logger;
         }
 

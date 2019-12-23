@@ -29,19 +29,20 @@ namespace Biletciniz.Data
             _roleManager.CreateAsync(new IdentityRole("Admin")).GetAwaiter().GetResult();
             _roleManager.CreateAsync(new IdentityRole("Musteri")).GetAwaiter().GetResult();
 
-            //_userManager.CreateAsync(new ApplicationUser
-            //{
-            //    UserName = "umit@gmail.com",
-            //    Email = "umit@gmail.com",
-            //    EmailConfirmed = true,
-            //    FirstName = "Umit",
-            //    LastName = "Kocabicak"
-            //}, "Umit1234*").GetAwaiter().GetResult();
+            _userManager.CreateAsync(new ApplicationUser
+            {
+               
+                UserName = "umit@gmail.com",
+                Email = "umit@gmail.com",
+                EmailConfirmed = true,
+                Ad = "Umit",
+                Soyad = "Kocabicak"
+            }, "Umit1234*").GetAwaiter().GetResult();
 
-            //ApplicationUser user = _db.ApplicationUser.Where
-            //    (u => u.Email == "umit@gmail.com").FirstOrDefault();
+            ApplicationUser user = _db.ApplicationUser.Where
+                (u => u.Email == "umit@gmail.com").FirstOrDefault();
 
-            //_userManager.AddToRoleAsync(user, "Admin").GetAwaiter().GetResult();
+            _userManager.AddToRoleAsync(user, "Admin").GetAwaiter().GetResult();
 
 
         }

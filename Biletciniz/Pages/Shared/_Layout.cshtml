@@ -36,8 +36,10 @@
         <div class="container-menu-desktop">
             <div class="topbar">
                 <div class="content-topbar container h-100">
-                    <div class="left-topbar">
+                    <div class="left-topbar-item main-menu-m">
 
+                        <partial name="_LoginPartial" />
+                       
                     </div>
 
 
@@ -66,6 +68,7 @@
             </div>
             <div class="wrap-header-mobile">
                 <!-- Logo moblie -->
+
                 <div class="logo-mobile">
                     <a asp-page="/Kullanıcı/Anasayfa/Index">
                         <img src="/images/icons/aaa.png" />
@@ -82,7 +85,6 @@
 
             <!-- Menu Mobile -->
             <div class="menu-mobile">
-
 
                 <ul class="main-menu-m" style="background-color:black">
                     <li style="background-color:black">
@@ -145,7 +147,7 @@
                                     <li><a asp-page="/Admin/Etkinlik/Index">Etkinlik</a></li>
                                     <li><a asp-page="/Admin/Sanatci/Index">Sanatçı</a></li>
                                     <li><a asp-page="/Admin/Mekan/Index">Mekan</a></li>
-                               
+
                                 </ul>
                                 <span class="arrow-main-menu-m">
                                     <i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -245,19 +247,22 @@
 
 
                             <li class="menu-item">
-                                <a href="#">Admin</a>
+                                @*@if (User.IsInRole("Admin"))
+                                {*@
+                                    <a href="#">Admin</a>
 
-                                <div class="sub-mega-menu">
-                                    <div class="nav flex-column nav-pills" role="tablist" style="background-color:white">
-                                        <a class="nav-link" asp-page="/Admin/Bilet/Index">Bilet</a>
-                                        <a class="nav-link" asp-page="/Admin/Etkinlik/Index">Etkinlik</a>
-                                        <a class="nav-link" asp-page="/Admin/Sanatci/Index">Sanatci </a>
-                                        <a class="nav-link" asp-page="/Admin/Mekan/Index">Mekan</a>
+                                    <div class="sub-mega-menu">
+                                        <div class="nav flex-column nav-pills" role="tablist" style="background-color:white">
+                                            <a class="nav-link" asp-page="/Admin/Bilet/Index">Bilet</a>
+                                            <a class="nav-link" asp-page="/Admin/Etkinlik/Index">Etkinlik</a>
+                                            <a class="nav-link" asp-page="/Admin/Sanatci/Index">Sanatci </a>
+                                            <a class="nav-link" asp-page="/Admin/Mekan/Index">Mekan</a>
+
+                                        </div>
 
                                     </div>
-
-                                </div>
-                            </li>
+                                    //}
+                                </li>
 
                         </ul>
 
